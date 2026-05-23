@@ -1,0 +1,178 @@
+aid: medusa-js
+url: https://raw.githubusercontent.com/api-evangelist/medusa-js/refs/heads/main/apis.yml
+name: Medusa
+kind: company
+description: >-
+  Medusa is an open-source headless commerce platform written in Node.js /
+  TypeScript. The Medusa server exposes two REST APIs - a Store API consumed by
+  storefronts and a privileged Admin API consumed by the Medusa Admin UI and
+  back-office tooling - both with OpenAPI specifications. Developer surface
+  includes the JS SDK, Admin Extensions, the modular Commerce Modules (cart,
+  order, product, payment, inventory, pricing, ...), Workflows, Subscribers,
+  Scheduled Jobs, the Next.js storefront starter, the CLI, and an MCP server
+  for AI agents.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Commerce
+  - Headless
+  - eCommerce
+  - Open Source
+  - Node.js
+  - TypeScript
+created: '2026-05-23'
+modified: '2026-05-23'
+specificationVersion: '0.19'
+apis:
+  - aid: medusa-js:store-api
+    name: Medusa Store API
+    description: >-
+      Public REST API consumed by storefronts and end-customer clients - carts,
+      products, collections, categories, regions, customers, orders, payments,
+      shipping, returns, gift cards, and store credit. Versioned and described
+      with OpenAPI.
+    humanURL: https://docs.medusajs.com/api/store
+    baseURL: https://docs.medusajs.com/api/store
+    tags:
+      - REST
+      - Storefront
+      - Carts
+      - Orders
+    properties:
+      - type: Documentation
+        url: https://docs.medusajs.com/api/store
+      - type: OpenAPI
+        url: https://docs.medusajs.com/api/download/store
+  - aid: medusa-js:admin-api
+    name: Medusa Admin API
+    description: >-
+      Privileged REST API consumed by the Medusa Admin dashboard and
+      back-office tooling - product, inventory, pricing, order, customer, user,
+      and store administration, plus configuration of regions, tax, currencies,
+      payment, and shipping. Authenticated via API tokens, sessions, or JWT.
+    humanURL: https://docs.medusajs.com/api/admin
+    baseURL: https://docs.medusajs.com/api/admin
+    tags:
+      - REST
+      - Admin
+      - Back-Office
+    properties:
+      - type: Documentation
+        url: https://docs.medusajs.com/api/admin
+      - type: OpenAPI
+        url: https://docs.medusajs.com/api/download/admin
+  - aid: medusa-js:js-sdk
+    name: Medusa JS SDK (@medusajs/js-sdk)
+    description: >-
+      Official TypeScript / JavaScript SDK wrapping the Store and Admin REST
+      APIs - typed clients, auth helpers, and ergonomic resource methods.
+      Distributed via npm as @medusajs/js-sdk with shared @medusajs/types.
+    humanURL: https://docs.medusajs.com/resources/js-sdk
+    baseURL: https://www.npmjs.com/package/@medusajs/js-sdk
+    tags:
+      - SDK
+      - JavaScript
+      - TypeScript
+    properties:
+      - type: Documentation
+        url: https://docs.medusajs.com/resources/js-sdk
+      - type: Package
+        url: https://www.npmjs.com/package/@medusajs/js-sdk
+  - aid: medusa-js:framework
+    name: Medusa Framework (Modules, Workflows, Routes)
+    description: >-
+      Server-side framework primitives for extending Medusa - custom API
+      Routes, Modules with their own data models (DML), Workflows for
+      transactional business logic, Subscribers and Scheduled Jobs for
+      event-driven and recurring work, and Admin Extensions for the dashboard.
+    humanURL: https://docs.medusajs.com/learn/fundamentals/framework
+    baseURL: https://docs.medusajs.com/learn/fundamentals/framework
+    tags:
+      - Framework
+      - Workflows
+      - Modules
+      - Extensions
+    properties:
+      - type: Documentation
+        url: https://docs.medusajs.com/learn/fundamentals/framework
+  - aid: medusa-js:cli
+    name: Medusa CLI (create-medusa-app)
+    description: >-
+      Command-line tooling for scaffolding new Medusa projects, generating
+      modules and migrations, running the server in dev, and managing common
+      project tasks.
+    humanURL: https://docs.medusajs.com/learn/installation
+    baseURL: https://github.com/medusajs/medusa
+    tags:
+      - CLI
+      - Tooling
+      - Developer Experience
+    properties:
+      - type: Documentation
+        url: https://docs.medusajs.com/learn/installation
+      - type: Repository
+        url: https://github.com/medusajs/medusa
+  - aid: medusa-js:nextjs-starter
+    name: Medusa Next.js Storefront Starter
+    description: >-
+      Reference Next.js storefront talking to the Medusa Store API - cart,
+      checkout, account, product browse, payments, and search. Used as the
+      canonical starting point for headless storefronts.
+    humanURL: https://docs.medusajs.com/resources/nextjs-starter
+    baseURL: https://github.com/medusajs/nextjs-starter-medusa
+    tags:
+      - Starter
+      - Next.js
+      - Storefront
+    properties:
+      - type: Repository
+        url: https://github.com/medusajs/nextjs-starter-medusa
+      - type: Documentation
+        url: https://docs.medusajs.com/resources/nextjs-starter
+  - aid: medusa-js:mcp-server
+    name: Medusa Docs MCP Server
+    description: >-
+      Remote Model Context Protocol server exposing the Medusa documentation to
+      LLM-powered coding assistants - lets agents look up commerce modules,
+      framework concepts, and APIs while writing Medusa code.
+    humanURL: https://docs.medusajs.com/learn/introduction/build-with-llms-ai
+    baseURL: https://docs.medusajs.com/learn/introduction/build-with-llms-ai
+    tags:
+      - MCP
+      - AI
+      - LLM
+      - Documentation
+    properties:
+      - type: Documentation
+        url: https://docs.medusajs.com/learn/introduction/build-with-llms-ai
+  - aid: medusa-js:core-repo
+    name: Medusa Core Repository
+    description: >-
+      Monorepo with the Medusa server, Admin, modules, framework, and packages.
+      Reference for self-hosting and for building modules and plugins.
+    humanURL: https://github.com/medusajs/medusa
+    baseURL: https://github.com/medusajs/medusa
+    tags:
+      - Open Source
+      - Repository
+      - Monorepo
+    properties:
+      - type: Repository
+        url: https://github.com/medusajs/medusa
+common:
+  - type: Website
+    url: https://medusajs.com/
+  - type: Documentation
+    url: https://docs.medusajs.com/
+  - type: API Reference (Store)
+    url: https://docs.medusajs.com/api/store
+  - type: API Reference (Admin)
+    url: https://docs.medusajs.com/api/admin
+  - type: GitHub
+    url: https://github.com/medusajs
+  - type: Cloud
+    url: https://medusajs.com/cloud
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/medusajs/
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
