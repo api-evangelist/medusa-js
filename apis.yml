@@ -173,6 +173,8 @@ common:
     url: https://medusajs.com/cloud
   - type: LinkedIn
     url: https://www.linkedin.com/company/medusajs/
+  - type: LLMsTxt
+    url: https://docs.medusajs.com/llms.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
