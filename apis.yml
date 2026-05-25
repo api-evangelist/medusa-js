@@ -1,16 +1,22 @@
 aid: medusa-js
 url: https://raw.githubusercontent.com/api-evangelist/medusa-js/refs/heads/main/apis.yml
 name: Medusa
-kind: company
+kind: opensource
 description: >-
-  Medusa is an open-source headless commerce platform written in Node.js /
-  TypeScript. The Medusa server exposes two REST APIs - a Store API consumed by
-  storefronts and a privileged Admin API consumed by the Medusa Admin UI and
-  back-office tooling - both with OpenAPI specifications. Developer surface
-  includes the JS SDK, Admin Extensions, the modular Commerce Modules (cart,
-  order, product, payment, inventory, pricing, ...), Workflows, Subscribers,
-  Scheduled Jobs, the Next.js storefront starter, the CLI, and an MCP server
-  for AI agents.
+  Medusa is an open-source headless commerce platform written in Node.js and
+  TypeScript, distributed under the MIT license. The Medusa server exposes two
+  REST APIs - a public Store API consumed by storefronts and end-customer
+  clients, and a privileged Admin API consumed by the Medusa Admin dashboard
+  and back-office tooling - both documented with OpenAPI. Around the server
+  the project ships a modular Framework (API Routes, Modules, Module Links,
+  Workflows, Subscribers, Scheduled Jobs, Admin Extensions), the Commerce
+  Modules (cart, payment, customer, pricing, promotion, product, order,
+  inventory, fulfillment, stock location, region, sales channel, tax,
+  currency, API keys, user, auth), the @medusajs/js-sdk TypeScript client,
+  the Medusa CLI (create-medusa-app), the Next.js storefront starter, a
+  remote MCP server that exposes the docs to LLM coding assistants, and
+  Medusa Cloud as an optional managed hosting offering with predictable
+  per-environment pricing and no GMV fees.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - Commerce
@@ -19,8 +25,12 @@ tags:
   - Open Source
   - Node.js
   - TypeScript
+  - Framework
+  - Modules
+  - Workflows
+  - MCP
 created: '2026-05-23'
-modified: '2026-05-23'
+modified: '2026-05-25'
 specificationVersion: '0.19'
 apis:
   - aid: medusa-js:store-api
@@ -28,8 +38,10 @@ apis:
     description: >-
       Public REST API consumed by storefronts and end-customer clients - carts,
       products, collections, categories, regions, customers, orders, payments,
-      shipping, returns, gift cards, and store credit. Versioned and described
-      with OpenAPI.
+      shipping, returns, gift cards, and store credit. Scoped to one or more
+      sales channels via a publishable API key, with customer-scoped requests
+      authenticated by JWT bearer token or session cookie. Versioned and
+      described with OpenAPI.
     humanURL: https://docs.medusajs.com/api/store
     baseURL: https://docs.medusajs.com/api/store
     tags:
@@ -37,18 +49,26 @@ apis:
       - Storefront
       - Carts
       - Orders
+      - Products
     properties:
       - type: Documentation
         url: https://docs.medusajs.com/api/store
+      - type: APIReference
+        url: https://docs.medusajs.com/api/store
       - type: OpenAPI
         url: https://docs.medusajs.com/api/download/store
+      - type: OpenAPI
+        url: openapi/medusa-js-openapi.yml
+      - type: Authentication
+        url: https://docs.medusajs.com/api/store#authentication
   - aid: medusa-js:admin-api
     name: Medusa Admin API
     description: >-
       Privileged REST API consumed by the Medusa Admin dashboard and
       back-office tooling - product, inventory, pricing, order, customer, user,
       and store administration, plus configuration of regions, tax, currencies,
-      payment, and shipping. Authenticated via API tokens, sessions, or JWT.
+      payment, and shipping. Authenticated via API tokens, admin sessions, or
+      JWT.
     humanURL: https://docs.medusajs.com/api/admin
     baseURL: https://docs.medusajs.com/api/admin
     tags:
@@ -58,8 +78,12 @@ apis:
     properties:
       - type: Documentation
         url: https://docs.medusajs.com/api/admin
+      - type: APIReference
+        url: https://docs.medusajs.com/api/admin
       - type: OpenAPI
         url: https://docs.medusajs.com/api/download/admin
+      - type: Authentication
+        url: https://docs.medusajs.com/api/admin#authentication
   - aid: medusa-js:js-sdk
     name: Medusa JS SDK (@medusajs/js-sdk)
     description: >-
@@ -77,13 +101,16 @@ apis:
         url: https://docs.medusajs.com/resources/js-sdk
       - type: Package
         url: https://www.npmjs.com/package/@medusajs/js-sdk
+      - type: Repository
+        url: https://github.com/medusajs/medusa/tree/develop/packages/core/js-sdk
   - aid: medusa-js:framework
     name: Medusa Framework (Modules, Workflows, Routes)
     description: >-
       Server-side framework primitives for extending Medusa - custom API
-      Routes, Modules with their own data models (DML), Workflows for
-      transactional business logic, Subscribers and Scheduled Jobs for
-      event-driven and recurring work, and Admin Extensions for the dashboard.
+      Routes, Modules with their own data models (DML), Module Links,
+      Workflows for transactional business logic, Subscribers and Scheduled
+      Jobs for event-driven and recurring work, and Admin Extensions for the
+      dashboard.
     humanURL: https://docs.medusajs.com/learn/fundamentals/framework
     baseURL: https://docs.medusajs.com/learn/fundamentals/framework
     tags:
@@ -94,6 +121,27 @@ apis:
     properties:
       - type: Documentation
         url: https://docs.medusajs.com/learn/fundamentals/framework
+      - type: Repository
+        url: https://github.com/medusajs/medusa
+  - aid: medusa-js:commerce-modules
+    name: Medusa Commerce Modules
+    description: >-
+      First-party domain modules that compose into a Medusa application -
+      Cart, Payment, Customer, Pricing, Promotion, Product, Order, Inventory,
+      Fulfillment, Stock Location, Region, Sales Channel, Tax, Currency, API
+      Keys, User, and Auth. Each module ships its own data models, services,
+      and APIs and can be replaced or extended.
+    humanURL: https://docs.medusajs.com/resources/commerce-modules
+    baseURL: https://docs.medusajs.com/resources/commerce-modules
+    tags:
+      - Modules
+      - Commerce
+      - Domain Models
+    properties:
+      - type: Documentation
+        url: https://docs.medusajs.com/resources/commerce-modules
+      - type: Repository
+        url: https://github.com/medusajs/medusa/tree/develop/packages/modules
   - aid: medusa-js:cli
     name: Medusa CLI (create-medusa-app)
     description: >-
@@ -111,6 +159,8 @@ apis:
         url: https://docs.medusajs.com/learn/installation
       - type: Repository
         url: https://github.com/medusajs/medusa
+      - type: Package
+        url: https://www.npmjs.com/package/create-medusa-app
   - aid: medusa-js:nextjs-starter
     name: Medusa Next.js Storefront Starter
     description: >-
@@ -131,8 +181,8 @@ apis:
   - aid: medusa-js:mcp-server
     name: Medusa Docs MCP Server
     description: >-
-      Remote Model Context Protocol server exposing the Medusa documentation to
-      LLM-powered coding assistants - lets agents look up commerce modules,
+      Remote Model Context Protocol server exposing the Medusa documentation
+      to LLM-powered coding assistants - lets agents look up commerce modules,
       framework concepts, and APIs while writing Medusa code.
     humanURL: https://docs.medusajs.com/learn/introduction/build-with-llms-ai
     baseURL: https://docs.medusajs.com/learn/introduction/build-with-llms-ai
@@ -147,8 +197,9 @@ apis:
   - aid: medusa-js:core-repo
     name: Medusa Core Repository
     description: >-
-      Monorepo with the Medusa server, Admin, modules, framework, and packages.
-      Reference for self-hosting and for building modules and plugins.
+      Monorepo with the Medusa server, Admin, Commerce Modules, Framework, and
+      packages. MIT-licensed reference for self-hosting and for building
+      modules and plugins.
     humanURL: https://github.com/medusajs/medusa
     baseURL: https://github.com/medusajs/medusa
     tags:
@@ -158,23 +209,178 @@ apis:
     properties:
       - type: Repository
         url: https://github.com/medusajs/medusa
+      - type: ReleaseNotes
+        url: https://github.com/medusajs/medusa/releases
+      - type: License
+        url: https://github.com/medusajs/medusa/blob/develop/LICENSE
 common:
   - type: Website
     url: https://medusajs.com/
   - type: Documentation
     url: https://docs.medusajs.com/
-  - type: API Reference (Store)
+  - type: APIReference
     url: https://docs.medusajs.com/api/store
-  - type: API Reference (Admin)
+  - type: APIReference
     url: https://docs.medusajs.com/api/admin
-  - type: GitHub
+  - type: GitHubOrganization
     url: https://github.com/medusajs
-  - type: Cloud
-    url: https://medusajs.com/cloud
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/medusajs/
+  - type: GitHubRepository
+    url: https://github.com/medusajs/medusa
+  - type: Pricing
+    url: https://medusajs.com/pricing/
+  - type: Blog
+    url: https://medusajs.com/blog/
+  - type: Support
+    url: https://discord.com/invite/medusajs
   - type: LLMsTxt
     url: https://docs.medusajs.com/llms.txt
+  - type: License
+    url: https://github.com/medusajs/medusa/blob/develop/LICENSE
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/medusajs/
+  - type: ReleaseNotes
+    url: https://github.com/medusajs/medusa/releases
+  - type: Features
+    data:
+      - name: Modular Commerce Modules
+        description: >-
+          First-party domain modules (cart, order, product, inventory,
+          pricing, promotion, payment, fulfillment, region, sales channel,
+          tax, currency, auth) that can be swapped or extended.
+      - name: Workflows Engine
+        description: >-
+          Transactional, durable business-logic workflows with compensation
+          steps for orchestrating multi-step commerce operations.
+      - name: Admin Dashboard
+        description: >-
+          Customizable React-based Medusa Admin UI with first-class admin
+          extensions for adding screens, widgets, and routes.
+      - name: Store and Admin REST APIs
+        description: >-
+          Two distinct REST surfaces - public Store API and privileged Admin
+          API - both described with OpenAPI.
+      - name: JS / TypeScript SDK
+        description: >-
+          Typed JS SDK (@medusajs/js-sdk) for both Store and Admin APIs with
+          shared types from @medusajs/types.
+      - name: Next.js Starter
+        description: >-
+          Reference Next.js storefront wired to the Store API as a launchpad
+          for custom storefronts.
+      - name: CLI Tooling
+        description: >-
+          create-medusa-app and the Medusa CLI for scaffolding projects,
+          running dev servers, and managing migrations.
+      - name: Agentic Development (MCP)
+        description: >-
+          Remote MCP server exposing the docs and a Development Agent that
+          lets LLM coding assistants build on Medusa.
+      - name: Medusa Cloud
+        description: >-
+          Optional managed hosting with GitHub-based deploys, autoscaling,
+          and no GMV-based fees.
+      - name: MIT License
+        description: >-
+          Permissive open-source license with no vendor lock-in and the
+          ability to self-host the full stack.
+  - type: UseCases
+    data:
+      - name: Headless DTC Storefronts
+        description: >-
+          Power Next.js / React Native / native storefronts for direct-to-
+          consumer brands using the Store API and JS SDK.
+      - name: B2B Commerce
+        description: >-
+          Build company-account, quoting, and approval flows on top of the
+          Commerce Modules and Workflows engine.
+      - name: Marketplaces
+        description: >-
+          Use sales channels, regions, and stock locations to model multi-
+          vendor and multi-store marketplaces.
+      - name: Composable Commerce Replatforming
+        description: >-
+          Replace Shopify, BigCommerce, or Magento with a fully owned,
+          self-hostable commerce backend.
+      - name: AI-Native Commerce
+        description: >-
+          Drive merchandising, support, and operations from LLM agents using
+          the MCP server and admin tooling.
+      - name: Custom Checkout Experiences
+        description: >-
+          Implement bespoke checkout, payment, and pricing flows by composing
+          modules and workflows.
+      - name: Quick Commerce & Logistics
+        description: >-
+          Model stock locations, fulfillment, and regions for last-mile and
+          on-demand delivery models.
+      - name: Internal Commerce Platforms
+        description: >-
+          Stand up an internal commerce backbone for catalog, orders, and
+          fulfillment shared across brands or business units.
+  - type: Integrations
+    data:
+      - name: Next.js
+        description: >-
+          Official Next.js storefront starter (nextjs-starter-medusa) wired
+          to the Store API.
+      - name: Stripe
+        description: >-
+          Payment provider integration for card payments and saved methods
+          via the Payment module.
+      - name: PayPal
+        description: >-
+          PayPal payment provider integration via the Payment module.
+      - name: Algolia / MeiliSearch / Typesense
+        description: >-
+          Search integrations for product catalog indexing and storefront
+          search.
+      - name: SendGrid / Resend
+        description: >-
+          Notification providers for transactional email through the
+          Notification module.
+      - name: AWS S3 / MinIO
+        description: >-
+          File storage providers for product images and assets.
+      - name: PostgreSQL
+        description: >-
+          Primary supported database engine for the Medusa server.
+      - name: Redis
+        description: >-
+          Used for caching, event bus, and queues in production deployments.
+      - name: Model Context Protocol (MCP)
+        description: >-
+          Remote MCP server exposes the Medusa docs to Claude, Cursor, and
+          other MCP-aware coding assistants.
+      - name: GitHub
+        description: >-
+          GitHub-based deployments and source-of-truth for Medusa Cloud
+          environments.
+  - type: Solutions
+    data:
+      - name: Medusa Core (Self-Hosted)
+        description: >-
+          Free, MIT-licensed open-source server, Admin, framework, and
+          commerce modules deployable to any Node.js host.
+      - name: Medusa Cloud - Develop
+        description: >-
+          Entry managed tier with GitHub deploys, dev agent, and a shared
+          server starting at $29/mo.
+      - name: Medusa Cloud - Launch
+        description: >-
+          Production-ready managed tier with autoscaling, custom domains,
+          automatic backups, and zero-downtime deploys at $99/mo.
+      - name: Medusa Cloud - Scale
+        description: >-
+          Growth tier with background workers, priority support, and higher
+          edge request quotas at $299/mo.
+      - name: Medusa Cloud - Enterprise
+        description: >-
+          SLA-backed enterprise tier with core-team access, custom agentic
+          workflows, and implementation support.
+      - name: Medusa Experts
+        description: >-
+          Curated partner network of agencies and consultancies delivering
+          Medusa implementations.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
