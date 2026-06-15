@@ -1,0 +1,416 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Medusa Store API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-publishable-api-key",
+      "value": "{{x-publishable-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Auth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Authenticate as a customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{medusaApplicationUrl}/auth/customer/:auth_provider",
+            "params": [
+              {
+                "name": "auth_provider",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-publishable-api-key",
+              "value": "{{x-publishable-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Authenticate as a customer"
+        },
+        {
+          "info": {
+            "name": "Exchange a JWT for a cookie session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{medusaApplicationUrl}/auth/session"
+          },
+          "docs": "Exchange a JWT for a cookie session"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Products",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{medusaApplicationUrl}/store/products",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List products"
+        },
+        {
+          "info": {
+            "name": "Get a product",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{medusaApplicationUrl}/store/products/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a product"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Carts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a cart",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{medusaApplicationUrl}/store/carts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a cart"
+        },
+        {
+          "info": {
+            "name": "Retrieve a cart",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{medusaApplicationUrl}/store/carts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a cart"
+        },
+        {
+          "info": {
+            "name": "Update a cart",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{medusaApplicationUrl}/store/carts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a cart"
+        },
+        {
+          "info": {
+            "name": "Add a line item to a cart",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{medusaApplicationUrl}/store/carts/:id/line-items",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a line item to a cart"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the authenticated customer's orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{medusaApplicationUrl}/store/orders",
+            "auth": {
+              "type": "apikey",
+              "key": "x-publishable-api-key",
+              "value": "{{x-publishable-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "List the authenticated customer's orders"
+        },
+        {
+          "info": {
+            "name": "Get an order",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{medusaApplicationUrl}/store/orders/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an order"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Customers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Register a customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{medusaApplicationUrl}/store/customers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Register a customer"
+        },
+        {
+          "info": {
+            "name": "Get the authenticated customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{medusaApplicationUrl}/store/customers/me",
+            "auth": {
+              "type": "apikey",
+              "key": "x-publishable-api-key",
+              "value": "{{x-publishable-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get the authenticated customer"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Collections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{medusaApplicationUrl}/store/collections"
+          },
+          "docs": "List collections"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Categories",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List product categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{medusaApplicationUrl}/store/categories"
+          },
+          "docs": "List product categories"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Regions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List regions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{medusaApplicationUrl}/store/regions"
+          },
+          "docs": "List regions"
+        },
+        {
+          "info": {
+            "name": "Get a region",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{medusaApplicationUrl}/store/regions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a region"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Shipping",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List available shipping options",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{medusaApplicationUrl}/store/shipping-options",
+            "params": [
+              {
+                "name": "cart_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List available shipping options"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Payments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a payment collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{medusaApplicationUrl}/store/payment-collections",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a payment collection"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
