@@ -17,7 +17,7 @@ description: >-
   remote MCP server that exposes the docs to LLM coding assistants, and
   Medusa Cloud as an optional managed hosting offering with predictable
   per-environment pricing and no GMV fees.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Commerce
   - Headless
