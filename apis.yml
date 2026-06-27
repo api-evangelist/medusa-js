@@ -232,7 +232,7 @@ common:
     url: https://medusajs.com/blog/
   - type: Support
     url: https://discord.com/invite/medusajs
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://docs.medusajs.com/llms.txt
   - type: License
     url: https://github.com/medusajs/medusa/blob/develop/LICENSE
