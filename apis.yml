@@ -214,6 +214,10 @@ apis:
       - type: License
         url: https://github.com/medusajs/medusa/blob/develop/LICENSE
 common:
+  - type: DomainSecurity
+    url: security/medusa-js-domain-security.yml
+  - type: Authentication
+    url: authentication/medusa-js-authentication.yml
   - type: Website
     url: https://medusajs.com/
   - type: Documentation

@@ -1,0 +1,30 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/medusa-js-openapi.yml
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - cookie
+  - header
+schemes:
+- name: publishableApiKey
+  type: apiKey
+  in: header
+  parameter: x-publishable-api-key
+  description: Publishable API key that scopes requests to one or more sales channels.
+  sources:
+  - openapi/medusa-js-openapi.yml
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: JWT bearer token obtained via /auth/customer/{auth_provider}.
+  sources:
+  - openapi/medusa-js-openapi.yml
+- name: cookieAuth
+  type: apiKey
+  in: cookie
+  parameter: connect.sid
+  sources:
+  - openapi/medusa-js-openapi.yml
