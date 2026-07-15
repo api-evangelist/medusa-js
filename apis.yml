@@ -214,6 +214,8 @@ apis:
       - type: License
         url: https://github.com/medusajs/medusa/blob/develop/LICENSE
 common:
+  - type: AgenticAccess
+    url: agentic-access/medusa-js-agentic-access.yml
   - type: DomainSecurity
     url: security/medusa-js-domain-security.yml
   - type: Authentication
