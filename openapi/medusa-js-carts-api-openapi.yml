@@ -1,0 +1,161 @@
+openapi: 3.1.0
+info:
+  title: Medusa Store Auth Carts API
+  version: '2'
+  description: 'Medusa Store API - the public REST surface consumed by storefronts and
+
+    end-customer clients of a Medusa commerce application. Provides carts,
+
+    products, collections, categories, regions, customers, orders, payments,
+
+    shipping, returns, and gift cards. Requests are scoped by sales channel
+
+    using a publishable API key passed in the x-publishable-api-key header.
+
+    Customer-scoped requests use a JWT bearer token or a cookie session.
+
+    '
+  contact:
+    name: Medusa Docs - Store API
+    url: https://docs.medusajs.com/api/store
+servers:
+- url: '{medusaApplicationUrl}'
+  description: Your Medusa application
+  variables:
+    medusaApplicationUrl:
+      default: http://localhost:9000
+      description: Base URL of your Medusa server (no trailing slash)
+security:
+- publishableApiKey: []
+  bearerAuth: []
+- publishableApiKey: []
+  cookieAuth: []
+tags:
+- name: Carts
+paths:
+  /store/carts:
+    post:
+      tags:
+      - Carts
+      summary: Create a cart
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                region_id:
+                  type: string
+                sales_channel_id:
+                  type: string
+                currency_code:
+                  type: string
+                email:
+                  type: string
+      responses:
+        '200':
+          description: Cart created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  cart:
+                    $ref: '#/components/schemas/Cart'
+  /store/carts/{id}:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Carts
+      summary: Retrieve a cart
+      responses:
+        '200':
+          description: Cart
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  cart:
+                    $ref: '#/components/schemas/Cart'
+    post:
+      tags:
+      - Carts
+      summary: Update a cart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cart'
+      responses:
+        '200':
+          description: Updated cart
+  /store/carts/{id}/line-items:
+    post:
+      tags:
+      - Carts
+      summary: Add a line item to a cart
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LineItem'
+      responses:
+        '200':
+          description: Cart with line items
+components:
+  schemas:
+    LineItem:
+      type: object
+      properties:
+        variant_id:
+          type: string
+        quantity:
+          type: integer
+        metadata:
+          type: object
+    Cart:
+      type: object
+      properties:
+        id:
+          type: string
+        currency_code:
+          type: string
+        email:
+          type: string
+        region_id:
+          type: string
+        sales_channel_id:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+  securitySchemes:
+    publishableApiKey:
+      type: apiKey
+      in: header
+      name: x-publishable-api-key
+      description: Publishable API key that scopes requests to one or more sales channels.
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: JWT bearer token obtained via /auth/customer/{auth_provider}.
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: connect.sid

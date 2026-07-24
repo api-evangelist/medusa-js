@@ -1,0 +1,94 @@
+openapi: 3.1.0
+info:
+  title: Medusa Store Auth Customers API
+  version: '2'
+  description: 'Medusa Store API - the public REST surface consumed by storefronts and
+
+    end-customer clients of a Medusa commerce application. Provides carts,
+
+    products, collections, categories, regions, customers, orders, payments,
+
+    shipping, returns, and gift cards. Requests are scoped by sales channel
+
+    using a publishable API key passed in the x-publishable-api-key header.
+
+    Customer-scoped requests use a JWT bearer token or a cookie session.
+
+    '
+  contact:
+    name: Medusa Docs - Store API
+    url: https://docs.medusajs.com/api/store
+servers:
+- url: '{medusaApplicationUrl}'
+  description: Your Medusa application
+  variables:
+    medusaApplicationUrl:
+      default: http://localhost:9000
+      description: Base URL of your Medusa server (no trailing slash)
+security:
+- publishableApiKey: []
+  bearerAuth: []
+- publishableApiKey: []
+  cookieAuth: []
+tags:
+- name: Customers
+paths:
+  /store/customers:
+    post:
+      tags:
+      - Customers
+      summary: Register a customer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+      responses:
+        '200':
+          description: Customer created
+  /store/customers/me:
+    get:
+      tags:
+      - Customers
+      summary: Get the authenticated customer
+      security:
+      - publishableApiKey: []
+        bearerAuth: []
+      responses:
+        '200':
+          description: Customer
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  customer:
+                    $ref: '#/components/schemas/Customer'
+components:
+  schemas:
+    Customer:
+      type: object
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+  securitySchemes:
+    publishableApiKey:
+      type: apiKey
+      in: header
+      name: x-publishable-api-key
+      description: Publishable API key that scopes requests to one or more sales channels.
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: JWT bearer token obtained via /auth/customer/{auth_provider}.
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: connect.sid
