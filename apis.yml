@@ -17,7 +17,20 @@ description: >-
   remote MCP server that exposes the docs to LLM coding assistants, and
   Medusa Cloud as an optional managed hosting offering with predictable
   per-environment pricing and no GMV fees.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: free
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Free · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/medusa-js.png
 tags:
   - Commerce
   - Headless
@@ -33,186 +46,347 @@ created: '2026-05-23'
 modified: '2026-05-25'
 specificationVersion: '0.19'
 apis:
-  - aid: medusa-js:store-api
-    name: Medusa Store API
-    description: >-
-      Public REST API consumed by storefronts and end-customer clients - carts,
-      products, collections, categories, regions, customers, orders, payments,
-      shipping, returns, gift cards, and store credit. Scoped to one or more
-      sales channels via a publishable API key, with customer-scoped requests
-      authenticated by JWT bearer token or session cookie. Versioned and
-      described with OpenAPI.
-    humanURL: https://docs.medusajs.com/api/store
-    baseURL: https://docs.medusajs.com/api/store
-    tags:
-      - REST
-      - Storefront
-      - Carts
-      - Orders
-      - Products
-    properties:
-      - type: Documentation
-        url: https://docs.medusajs.com/api/store
-      - type: APIReference
-        url: https://docs.medusajs.com/api/store
-      - type: OpenAPI
-        url: https://docs.medusajs.com/api/download/store
-      - type: OpenAPI
-        url: openapi/medusa-js-openapi.yml
-      - type: Authentication
-        url: https://docs.medusajs.com/api/store#authentication
-  - aid: medusa-js:admin-api
-    name: Medusa Admin API
-    description: >-
-      Privileged REST API consumed by the Medusa Admin dashboard and
-      back-office tooling - product, inventory, pricing, order, customer, user,
-      and store administration, plus configuration of regions, tax, currencies,
-      payment, and shipping. Authenticated via API tokens, admin sessions, or
-      JWT.
-    humanURL: https://docs.medusajs.com/api/admin
-    baseURL: https://docs.medusajs.com/api/admin
-    tags:
-      - REST
-      - Admin
-      - Back-Office
-    properties:
-      - type: Documentation
-        url: https://docs.medusajs.com/api/admin
-      - type: APIReference
-        url: https://docs.medusajs.com/api/admin
-      - type: OpenAPI
-        url: https://docs.medusajs.com/api/download/admin
-      - type: Authentication
-        url: https://docs.medusajs.com/api/admin#authentication
-  - aid: medusa-js:js-sdk
-    name: Medusa JS SDK (@medusajs/js-sdk)
-    description: >-
-      Official TypeScript / JavaScript SDK wrapping the Store and Admin REST
-      APIs - typed clients, auth helpers, and ergonomic resource methods.
-      Distributed via npm as @medusajs/js-sdk with shared @medusajs/types.
-    humanURL: https://docs.medusajs.com/resources/js-sdk
-    baseURL: https://www.npmjs.com/package/@medusajs/js-sdk
-    tags:
-      - SDK
-      - JavaScript
-      - TypeScript
-    properties:
-      - type: Documentation
-        url: https://docs.medusajs.com/resources/js-sdk
-      - type: Package
-        url: https://www.npmjs.com/package/@medusajs/js-sdk
-      - type: Repository
-        url: https://github.com/medusajs/medusa/tree/develop/packages/core/js-sdk
-  - aid: medusa-js:framework
-    name: Medusa Framework (Modules, Workflows, Routes)
-    description: >-
-      Server-side framework primitives for extending Medusa - custom API
-      Routes, Modules with their own data models (DML), Module Links,
-      Workflows for transactional business logic, Subscribers and Scheduled
-      Jobs for event-driven and recurring work, and Admin Extensions for the
-      dashboard.
-    humanURL: https://docs.medusajs.com/learn/fundamentals/framework
-    baseURL: https://docs.medusajs.com/learn/fundamentals/framework
-    tags:
-      - Framework
-      - Workflows
-      - Modules
-      - Extensions
-    properties:
-      - type: Documentation
-        url: https://docs.medusajs.com/learn/fundamentals/framework
-      - type: Repository
-        url: https://github.com/medusajs/medusa
-  - aid: medusa-js:commerce-modules
-    name: Medusa Commerce Modules
-    description: >-
-      First-party domain modules that compose into a Medusa application -
-      Cart, Payment, Customer, Pricing, Promotion, Product, Order, Inventory,
-      Fulfillment, Stock Location, Region, Sales Channel, Tax, Currency, API
-      Keys, User, and Auth. Each module ships its own data models, services,
-      and APIs and can be replaced or extended.
-    humanURL: https://docs.medusajs.com/resources/commerce-modules
-    baseURL: https://docs.medusajs.com/resources/commerce-modules
-    tags:
-      - Modules
-      - Commerce
-      - Domain Models
-    properties:
-      - type: Documentation
-        url: https://docs.medusajs.com/resources/commerce-modules
-      - type: Repository
-        url: https://github.com/medusajs/medusa/tree/develop/packages/modules
-  - aid: medusa-js:cli
-    name: Medusa CLI (create-medusa-app)
-    description: >-
-      Command-line tooling for scaffolding new Medusa projects, generating
-      modules and migrations, running the server in dev, and managing common
-      project tasks.
-    humanURL: https://docs.medusajs.com/learn/installation
-    baseURL: https://github.com/medusajs/medusa
-    tags:
-      - CLI
-      - Tooling
-      - Developer Experience
-    properties:
-      - type: Documentation
-        url: https://docs.medusajs.com/learn/installation
-      - type: Repository
-        url: https://github.com/medusajs/medusa
-      - type: Package
-        url: https://www.npmjs.com/package/create-medusa-app
-  - aid: medusa-js:nextjs-starter
-    name: Medusa Next.js Storefront Starter
-    description: >-
-      Reference Next.js storefront talking to the Medusa Store API - cart,
-      checkout, account, product browse, payments, and search. Used as the
-      canonical starting point for headless storefronts.
-    humanURL: https://docs.medusajs.com/resources/nextjs-starter
-    baseURL: https://github.com/medusajs/nextjs-starter-medusa
-    tags:
-      - Starter
-      - Next.js
-      - Storefront
-    properties:
-      - type: Repository
-        url: https://github.com/medusajs/nextjs-starter-medusa
-      - type: Documentation
-        url: https://docs.medusajs.com/resources/nextjs-starter
-  - aid: medusa-js:mcp-server
-    name: Medusa Docs MCP Server
-    description: >-
-      Remote Model Context Protocol server exposing the Medusa documentation
-      to LLM-powered coding assistants - lets agents look up commerce modules,
-      framework concepts, and APIs while writing Medusa code.
-    humanURL: https://docs.medusajs.com/learn/introduction/build-with-llms-ai
-    baseURL: https://docs.medusajs.com/learn/introduction/build-with-llms-ai
-    tags:
-      - MCP
-      - AI
-      - LLM
-      - Documentation
-    properties:
-      - type: Documentation
-        url: https://docs.medusajs.com/learn/introduction/build-with-llms-ai
-  - aid: medusa-js:core-repo
-    name: Medusa Core Repository
-    description: >-
-      Monorepo with the Medusa server, Admin, Commerce Modules, Framework, and
-      packages. MIT-licensed reference for self-hosting and for building
-      modules and plugins.
-    humanURL: https://github.com/medusajs/medusa
-    baseURL: https://github.com/medusajs/medusa
-    tags:
-      - Open Source
-      - Repository
-      - Monorepo
-    properties:
-      - type: Repository
-        url: https://github.com/medusajs/medusa
-      - type: ReleaseNotes
-        url: https://github.com/medusajs/medusa/releases
-      - type: License
-        url: https://github.com/medusajs/medusa/blob/develop/LICENSE
+- aid: medusa-js:js-sdk
+  name: Medusa JS SDK (@medusajs/js-sdk)
+  description: >-
+    Official TypeScript / JavaScript SDK wrapping the Store and Admin REST APIs - typed clients, auth
+    helpers, and ergonomic resource methods. Distributed via npm as @medusajs/js-sdk with shared @medusajs/types.
+  humanURL: https://docs.medusajs.com/resources/js-sdk
+  baseURL: https://www.npmjs.com/package/@medusajs/js-sdk
+  tags:
+  - SDK
+  - JavaScript
+  - TypeScript
+  properties:
+  - type: Documentation
+    url: https://docs.medusajs.com/resources/js-sdk
+  - type: Package
+    url: https://www.npmjs.com/package/@medusajs/js-sdk
+  - type: Repository
+    url: https://github.com/medusajs/medusa/tree/develop/packages/core/js-sdk
+- aid: medusa-js:framework
+  name: Medusa Framework (Modules, Workflows, Routes)
+  description: >-
+    Server-side framework primitives for extending Medusa - custom API Routes, Modules with their own
+    data models (DML), Module Links, Workflows for transactional business logic, Subscribers and Scheduled
+    Jobs for event-driven and recurring work, and Admin Extensions for the dashboard.
+  humanURL: https://docs.medusajs.com/learn/fundamentals/framework
+  baseURL: https://docs.medusajs.com/learn/fundamentals/framework
+  tags:
+  - Framework
+  - Workflows
+  - Modules
+  - Extensions
+  properties:
+  - type: Documentation
+    url: https://docs.medusajs.com/learn/fundamentals/framework
+  - type: Repository
+    url: https://github.com/medusajs/medusa
+- aid: medusa-js:commerce-modules
+  name: Medusa Commerce Modules
+  description: >-
+    First-party domain modules that compose into a Medusa application - Cart, Payment, Customer, Pricing,
+    Promotion, Product, Order, Inventory, Fulfillment, Stock Location, Region, Sales Channel, Tax, Currency,
+    API Keys, User, and Auth. Each module ships its own data models, services, and APIs and can be replaced
+    or extended.
+  humanURL: https://docs.medusajs.com/resources/commerce-modules
+  baseURL: https://docs.medusajs.com/resources/commerce-modules
+  tags:
+  - Modules
+  - Commerce
+  - Domain Models
+  properties:
+  - type: Documentation
+    url: https://docs.medusajs.com/resources/commerce-modules
+  - type: Repository
+    url: https://github.com/medusajs/medusa/tree/develop/packages/modules
+- aid: medusa-js:cli
+  name: Medusa CLI (create-medusa-app)
+  description: >-
+    Command-line tooling for scaffolding new Medusa projects, generating modules and migrations, running
+    the server in dev, and managing common project tasks.
+  humanURL: https://docs.medusajs.com/learn/installation
+  baseURL: https://github.com/medusajs/medusa
+  tags:
+  - CLI
+  - Tooling
+  - Developer Experience
+  properties:
+  - type: Documentation
+    url: https://docs.medusajs.com/learn/installation
+  - type: Repository
+    url: https://github.com/medusajs/medusa
+  - type: Package
+    url: https://www.npmjs.com/package/create-medusa-app
+- aid: medusa-js:nextjs-starter
+  name: Medusa Next.js Storefront Starter
+  description: >-
+    Reference Next.js storefront talking to the Medusa Store API - cart, checkout, account, product browse,
+    payments, and search. Used as the canonical starting point for headless storefronts.
+  humanURL: https://docs.medusajs.com/resources/nextjs-starter
+  baseURL: https://github.com/medusajs/nextjs-starter-medusa
+  tags:
+  - Starter
+  - Next.js
+  - Storefront
+  properties:
+  - type: Repository
+    url: https://github.com/medusajs/nextjs-starter-medusa
+  - type: Documentation
+    url: https://docs.medusajs.com/resources/nextjs-starter
+- aid: medusa-js:mcp-server
+  name: Medusa Docs MCP Server
+  description: >-
+    Remote Model Context Protocol server exposing the Medusa documentation to LLM-powered coding assistants
+    - lets agents look up commerce modules, framework concepts, and APIs while writing Medusa code.
+  humanURL: https://docs.medusajs.com/learn/introduction/build-with-llms-ai
+  baseURL: https://docs.medusajs.com/learn/introduction/build-with-llms-ai
+  tags:
+  - MCP
+  - AI
+  - LLM
+  - Documentation
+  properties:
+  - type: Documentation
+    url: https://docs.medusajs.com/learn/introduction/build-with-llms-ai
+- aid: medusa-js:core-repo
+  name: Medusa Core Repository
+  description: >-
+    Monorepo with the Medusa server, Admin, Commerce Modules, Framework, and packages. MIT-licensed reference
+    for self-hosting and for building modules and plugins.
+  humanURL: https://github.com/medusajs/medusa
+  baseURL: https://github.com/medusajs/medusa
+  tags:
+  - Open Source
+  - Repository
+  - Monorepo
+  properties:
+  - type: Repository
+    url: https://github.com/medusajs/medusa
+  - type: ReleaseNotes
+    url: https://github.com/medusajs/medusa/releases
+  - type: License
+    url: https://github.com/medusajs/medusa/blob/develop/LICENSE
+- aid: medusa-js:medusa-js-auth-api
+  name: Medusa Auth API
+  description: The Auth API from Medusa — 2 operation(s) for auth.
+  humanURL: https://docs.medusajs.com/api/store
+  baseURL: https://docs.medusajs.com/api/store
+  tags:
+  - Auth
+  properties:
+  - type: OpenAPI
+    url: openapi/medusa-js-auth-api-openapi.yml
+  - type: Documentation
+    url: https://docs.medusajs.com/api/store
+  - type: APIReference
+    url: https://docs.medusajs.com/api/store
+  - type: Authentication
+    url: https://docs.medusajs.com/api/store#authentication
+  - type: Documentation
+    url: https://docs.medusajs.com/api/admin
+  - type: APIReference
+    url: https://docs.medusajs.com/api/admin
+  - type: Authentication
+    url: https://docs.medusajs.com/api/admin#authentication
+- aid: medusa-js:medusa-js-carts-api
+  name: Medusa Carts API
+  description: The Carts API from Medusa — 3 operation(s) for carts.
+  humanURL: https://docs.medusajs.com/api/store
+  baseURL: https://docs.medusajs.com/api/store
+  tags:
+  - Carts
+  properties:
+  - type: OpenAPI
+    url: openapi/medusa-js-carts-api-openapi.yml
+  - type: Documentation
+    url: https://docs.medusajs.com/api/store
+  - type: APIReference
+    url: https://docs.medusajs.com/api/store
+  - type: Authentication
+    url: https://docs.medusajs.com/api/store#authentication
+  - type: Documentation
+    url: https://docs.medusajs.com/api/admin
+  - type: APIReference
+    url: https://docs.medusajs.com/api/admin
+  - type: Authentication
+    url: https://docs.medusajs.com/api/admin#authentication
+- aid: medusa-js:medusa-js-categories-api
+  name: Medusa Categories API
+  description: The Categories API from Medusa — 1 operation(s) for categories.
+  humanURL: https://docs.medusajs.com/api/store
+  baseURL: https://docs.medusajs.com/api/store
+  tags:
+  - Categories
+  properties:
+  - type: OpenAPI
+    url: openapi/medusa-js-categories-api-openapi.yml
+  - type: Documentation
+    url: https://docs.medusajs.com/api/store
+  - type: APIReference
+    url: https://docs.medusajs.com/api/store
+  - type: Authentication
+    url: https://docs.medusajs.com/api/store#authentication
+  - type: Documentation
+    url: https://docs.medusajs.com/api/admin
+  - type: APIReference
+    url: https://docs.medusajs.com/api/admin
+  - type: Authentication
+    url: https://docs.medusajs.com/api/admin#authentication
+- aid: medusa-js:medusa-js-collections-api
+  name: Medusa Collections API
+  description: The Collections API from Medusa — 1 operation(s) for collections.
+  humanURL: https://docs.medusajs.com/api/store
+  baseURL: https://docs.medusajs.com/api/store
+  tags:
+  - Collections
+  properties:
+  - type: OpenAPI
+    url: openapi/medusa-js-collections-api-openapi.yml
+  - type: Documentation
+    url: https://docs.medusajs.com/api/store
+  - type: APIReference
+    url: https://docs.medusajs.com/api/store
+  - type: Authentication
+    url: https://docs.medusajs.com/api/store#authentication
+  - type: Documentation
+    url: https://docs.medusajs.com/api/admin
+  - type: APIReference
+    url: https://docs.medusajs.com/api/admin
+  - type: Authentication
+    url: https://docs.medusajs.com/api/admin#authentication
+- aid: medusa-js:medusa-js-customers-api
+  name: Medusa Customers API
+  description: The Customers API from Medusa — 2 operation(s) for customers.
+  humanURL: https://docs.medusajs.com/api/store
+  baseURL: https://docs.medusajs.com/api/store
+  tags:
+  - Customers
+  properties:
+  - type: OpenAPI
+    url: openapi/medusa-js-customers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.medusajs.com/api/store
+  - type: APIReference
+    url: https://docs.medusajs.com/api/store
+  - type: Authentication
+    url: https://docs.medusajs.com/api/store#authentication
+  - type: Documentation
+    url: https://docs.medusajs.com/api/admin
+  - type: APIReference
+    url: https://docs.medusajs.com/api/admin
+  - type: Authentication
+    url: https://docs.medusajs.com/api/admin#authentication
+- aid: medusa-js:medusa-js-orders-api
+  name: Medusa Orders API
+  description: The Orders API from Medusa — 2 operation(s) for orders.
+  humanURL: https://docs.medusajs.com/api/store
+  baseURL: https://docs.medusajs.com/api/store
+  tags:
+  - Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/medusa-js-orders-api-openapi.yml
+  - type: Documentation
+    url: https://docs.medusajs.com/api/store
+  - type: APIReference
+    url: https://docs.medusajs.com/api/store
+  - type: Authentication
+    url: https://docs.medusajs.com/api/store#authentication
+  - type: Documentation
+    url: https://docs.medusajs.com/api/admin
+  - type: APIReference
+    url: https://docs.medusajs.com/api/admin
+  - type: Authentication
+    url: https://docs.medusajs.com/api/admin#authentication
+- aid: medusa-js:medusa-js-payments-api
+  name: Medusa Payments API
+  description: The Payments API from Medusa — 1 operation(s) for payments.
+  humanURL: https://docs.medusajs.com/api/store
+  baseURL: https://docs.medusajs.com/api/store
+  tags:
+  - Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/medusa-js-payments-api-openapi.yml
+  - type: Documentation
+    url: https://docs.medusajs.com/api/store
+  - type: APIReference
+    url: https://docs.medusajs.com/api/store
+  - type: Authentication
+    url: https://docs.medusajs.com/api/store#authentication
+  - type: Documentation
+    url: https://docs.medusajs.com/api/admin
+  - type: APIReference
+    url: https://docs.medusajs.com/api/admin
+  - type: Authentication
+    url: https://docs.medusajs.com/api/admin#authentication
+- aid: medusa-js:medusa-js-products-api
+  name: Medusa Products API
+  description: The Products API from Medusa — 2 operation(s) for products.
+  humanURL: https://docs.medusajs.com/api/store
+  baseURL: https://docs.medusajs.com/api/store
+  tags:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/medusa-js-products-api-openapi.yml
+  - type: Documentation
+    url: https://docs.medusajs.com/api/store
+  - type: APIReference
+    url: https://docs.medusajs.com/api/store
+  - type: Authentication
+    url: https://docs.medusajs.com/api/store#authentication
+  - type: Documentation
+    url: https://docs.medusajs.com/api/admin
+  - type: APIReference
+    url: https://docs.medusajs.com/api/admin
+  - type: Authentication
+    url: https://docs.medusajs.com/api/admin#authentication
+- aid: medusa-js:medusa-js-regions-api
+  name: Medusa Regions API
+  description: The Regions API from Medusa — 2 operation(s) for regions.
+  humanURL: https://docs.medusajs.com/api/store
+  baseURL: https://docs.medusajs.com/api/store
+  tags:
+  - Regions
+  properties:
+  - type: OpenAPI
+    url: openapi/medusa-js-regions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.medusajs.com/api/store
+  - type: APIReference
+    url: https://docs.medusajs.com/api/store
+  - type: Authentication
+    url: https://docs.medusajs.com/api/store#authentication
+  - type: Documentation
+    url: https://docs.medusajs.com/api/admin
+  - type: APIReference
+    url: https://docs.medusajs.com/api/admin
+  - type: Authentication
+    url: https://docs.medusajs.com/api/admin#authentication
+- aid: medusa-js:medusa-js-shipping-api
+  name: Medusa Shipping API
+  description: The Shipping API from Medusa — 1 operation(s) for shipping.
+  humanURL: https://docs.medusajs.com/api/store
+  baseURL: https://docs.medusajs.com/api/store
+  tags:
+  - Shipping
+  properties:
+  - type: OpenAPI
+    url: openapi/medusa-js-shipping-api-openapi.yml
+  - type: Documentation
+    url: https://docs.medusajs.com/api/store
+  - type: APIReference
+    url: https://docs.medusajs.com/api/store
+  - type: Authentication
+    url: https://docs.medusajs.com/api/store#authentication
+  - type: Documentation
+    url: https://docs.medusajs.com/api/admin
+  - type: APIReference
+    url: https://docs.medusajs.com/api/admin
+  - type: Authentication
+    url: https://docs.medusajs.com/api/admin#authentication
 common:
   - type: AgenticAccess
     url: agentic-access/medusa-js-agentic-access.yml
