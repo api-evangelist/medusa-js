@@ -1,0 +1,32 @@
+{
+  "provider": "medusa-js",
+  "sources": [
+    "medusa-js-auth-api-openapi.yml",
+    "medusa-js-carts-api-openapi.yml",
+    "medusa-js-categories-api-openapi.yml",
+    "medusa-js-collections-api-openapi.yml",
+    "medusa-js-customers-api-openapi.yml",
+    "medusa-js-orders-api-openapi.yml",
+    "medusa-js-payments-api-openapi.yml",
+    "medusa-js-products-api-openapi.yml",
+    "medusa-js-regions-api-openapi.yml",
+    "medusa-js-shipping-api-openapi.yml"
+  ],
+  "outputs": [
+    "medusa-js-auth-api-openapi.yml",
+    "medusa-js-carts-api-openapi.yml",
+    "medusa-js-categories-api-openapi.yml",
+    "medusa-js-collections-api-openapi.yml",
+    "medusa-js-customers-api-openapi.yml",
+    "medusa-js-orders-api-openapi.yml",
+    "medusa-js-payments-api-openapi.yml",
+    "medusa-js-products-api-openapi.yml",
+    "medusa-js-regions-api-openapi.yml",
+    "medusa-js-shipping-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
