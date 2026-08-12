@@ -388,6 +388,12 @@ apis:
   - type: Authentication
     url: https://docs.medusajs.com/api/admin#authentication
 common:
+  - type: IssueTracker
+    url: https://github.com/medusajs/medusa/issues
+  - type: SecurityPolicy
+    url: https://github.com/medusajs/medusa/blob/develop/SECURITY.md
+  - type: ContributionGuide
+    url: https://github.com/medusajs/medusa/blob/develop/CONTRIBUTING.md
   - type: AgenticAccess
     url: agentic-access/medusa-js-agentic-access.yml
   - type: DomainSecurity
