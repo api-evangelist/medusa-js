@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Medusa Store Auth Payments API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-publishable-api-key",
+      "value": "{{x-publishable-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a payment collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{medusaApplicationUrl}/store/payment-collections",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a payment collection"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

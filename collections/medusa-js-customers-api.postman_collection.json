@@ -1,0 +1,271 @@
+{
+  "item": [
+    {
+      "id": "f6265374-de8b-48cb-8b63-36e87e8658ad",
+      "name": "Customers",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b3139f37-0140-4696-9018-e038a5ea3a92",
+          "name": "Register a customer",
+          "request": {
+            "name": "Register a customer",
+            "description": {},
+            "url": {
+              "path": [
+                "store",
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Base URL of your Medusa server (no trailing slash)",
+                  "type": "any",
+                  "value": "{{medusaApplicationUrl}}",
+                  "key": "medusaApplicationUrl"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9ecc75fd-5969-44a3-8189-dc035d074f4c",
+              "name": "Customer created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "store",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Base URL of your Medusa server (no trailing slash)",
+                      "type": "any",
+                      "value": "{{medusaApplicationUrl}}",
+                      "key": "medusaApplicationUrl"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-publishable-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "178cbe33-7214-42fc-b03b-22b2e397af1f",
+          "name": "Get the authenticated customer",
+          "request": {
+            "name": "Get the authenticated customer",
+            "description": {},
+            "url": {
+              "path": [
+                "store",
+                "customers",
+                "me"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Base URL of your Medusa server (no trailing slash)",
+                  "type": "any",
+                  "value": "{{medusaApplicationUrl}}",
+                  "key": "medusaApplicationUrl"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-publishable-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fc493304-2333-4a7a-8a40-05b91f66c415",
+              "name": "Customer",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "store",
+                    "customers",
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Base URL of your Medusa server (no trailing slash)",
+                      "type": "any",
+                      "value": "{{medusaApplicationUrl}}",
+                      "key": "medusaApplicationUrl"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-publishable-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"customer\": {\n    \"id\": \"string\",\n    \"email\": \"string\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Base URL of your Medusa server (no trailing slash)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "http://localhost:9000",
+      "key": "medusaApplicationUrl"
+    },
+    {
+      "type": "string",
+      "value": "{{medusaApplicationUrl}}",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-publishable-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a1e68a12-9a0a-4aa8-96d0-3b58e1cc21e8",
+    "name": "Medusa Store Auth Customers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Medusa Store API - the public REST surface consumed by storefronts and\nend-customer clients of a Medusa commerce application. Provides carts,\nproducts, collections, categories, regions, customers, orders, payments,\nshipping, returns, and gift cards. Requests are scoped by sales channel\nusing a publishable API key passed in the x-publishable-api-key header.\nCustomer-scoped requests use a JWT bearer token or a cookie session.\n\n\nContact Support:\n Name: Medusa Docs - Store API",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Medusa Store Auth API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-publishable-api-key",
+      "value": "{{x-publishable-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Auth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Authenticate as a customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{medusaApplicationUrl}/auth/customer/:auth_provider",
+            "params": [
+              {
+                "name": "auth_provider",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-publishable-api-key",
+              "value": "{{x-publishable-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Authenticate as a customer"
+        },
+        {
+          "info": {
+            "name": "Exchange a JWT for a cookie session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{medusaApplicationUrl}/auth/session"
+          },
+          "docs": "Exchange a JWT for a cookie session"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

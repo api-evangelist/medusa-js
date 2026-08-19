@@ -1,0 +1,44 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Medusa Store Auth Shipping API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-publishable-api-key",
+      "value": "{{x-publishable-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Shipping",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List available shipping options",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{medusaApplicationUrl}/store/shipping-options",
+            "params": [
+              {
+                "name": "cart_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List available shipping options"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

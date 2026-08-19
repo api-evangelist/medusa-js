@@ -1,0 +1,162 @@
+{
+  "item": [
+    {
+      "id": "dd1049b2-4b65-4ca7-bc56-e2d84408be18",
+      "name": "Payments",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "51d482a7-cf3d-4fa6-adf2-ab043d1cde65",
+          "name": "Create a payment collection",
+          "request": {
+            "name": "Create a payment collection",
+            "description": {},
+            "url": {
+              "path": [
+                "store",
+                "payment-collections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Base URL of your Medusa server (no trailing slash)",
+                  "type": "any",
+                  "value": "{{medusaApplicationUrl}}",
+                  "key": "medusaApplicationUrl"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cart_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "10483753-d728-4a05-ae0d-4877b3e85ab5",
+              "name": "Payment collection created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "store",
+                    "payment-collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Base URL of your Medusa server (no trailing slash)",
+                      "type": "any",
+                      "value": "{{medusaApplicationUrl}}",
+                      "key": "medusaApplicationUrl"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-publishable-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"cart_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Base URL of your Medusa server (no trailing slash)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "http://localhost:9000",
+      "key": "medusaApplicationUrl"
+    },
+    {
+      "type": "string",
+      "value": "{{medusaApplicationUrl}}",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-publishable-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2f13f26b-c4c5-40bd-9b83-d939a5a7682f",
+    "name": "Medusa Store Auth Payments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Medusa Store API - the public REST surface consumed by storefronts and\nend-customer clients of a Medusa commerce application. Provides carts,\nproducts, collections, categories, regions, customers, orders, payments,\nshipping, returns, and gift cards. Requests are scoped by sales channel\nusing a publishable API key passed in the x-publishable-api-key header.\nCustomer-scoped requests use a JWT bearer token or a cookie session.\n\n\nContact Support:\n Name: Medusa Docs - Store API",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Medusa Store Auth Orders API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-publishable-api-key",
+      "value": "{{x-publishable-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the authenticated customer's orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{medusaApplicationUrl}/store/orders",
+            "auth": {
+              "type": "apikey",
+              "key": "x-publishable-api-key",
+              "value": "{{x-publishable-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "List the authenticated customer's orders"
+        },
+        {
+          "info": {
+            "name": "Get an order",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{medusaApplicationUrl}/store/orders/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an order"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

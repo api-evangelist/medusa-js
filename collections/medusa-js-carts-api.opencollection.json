@@ -1,0 +1,103 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Medusa Store Auth Carts API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-publishable-api-key",
+      "value": "{{x-publishable-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Carts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a cart",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{medusaApplicationUrl}/store/carts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a cart"
+        },
+        {
+          "info": {
+            "name": "Retrieve a cart",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{medusaApplicationUrl}/store/carts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a cart"
+        },
+        {
+          "info": {
+            "name": "Update a cart",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{medusaApplicationUrl}/store/carts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a cart"
+        },
+        {
+          "info": {
+            "name": "Add a line item to a cart",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{medusaApplicationUrl}/store/carts/:id/line-items",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a line item to a cart"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
