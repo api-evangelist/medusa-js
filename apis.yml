@@ -34,6 +34,17 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/medusa-js.
 tags:
   - Commerce
   - Headless
+  - E-Commerce
+  - Open-Source
+  - Node.js
+  - TypeScript
+  - Framework
+  - Modules
+  - Workflows
+  - MCP
+tags_raw:
+  - Commerce
+  - Headless
   - eCommerce
   - Open Source
   - Node.js
@@ -143,6 +154,11 @@ apis:
   baseURL: https://docs.medusajs.com/learn/introduction/build-with-llms-ai
   tags:
   - MCP
+  - Artificial Intelligence
+  - LLM
+  - Documentation
+  tags_raw:
+  - MCP
   - AI
   - LLM
   - Documentation
@@ -157,6 +173,10 @@ apis:
   humanURL: https://github.com/medusajs/medusa
   baseURL: https://github.com/medusajs/medusa
   tags:
+  - Open-Source
+  - Repository
+  - Monorepo
+  tags_raw:
   - Open Source
   - Repository
   - Monorepo
@@ -173,6 +193,8 @@ apis:
   humanURL: https://docs.medusajs.com/api/store
   baseURL: https://docs.medusajs.com/api/store
   tags:
+  - Authentication
+  tags_raw:
   - Auth
   properties:
   - type: OpenAPI
@@ -195,6 +217,8 @@ apis:
   humanURL: https://docs.medusajs.com/api/store
   baseURL: https://docs.medusajs.com/api/store
   tags:
+  - Cart
+  tags_raw:
   - Carts
   properties:
   - type: OpenAPI
@@ -239,6 +263,8 @@ apis:
   humanURL: https://docs.medusajs.com/api/store
   baseURL: https://docs.medusajs.com/api/store
   tags:
+  - Collection
+  tags_raw:
   - Collections
   properties:
   - type: OpenAPI
@@ -283,6 +309,8 @@ apis:
   humanURL: https://docs.medusajs.com/api/store
   baseURL: https://docs.medusajs.com/api/store
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
@@ -327,6 +355,8 @@ apis:
   humanURL: https://docs.medusajs.com/api/store
   baseURL: https://docs.medusajs.com/api/store
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI
