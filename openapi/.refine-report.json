@@ -27,6 +27,18 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "medusa-js-auth-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "medusa-js-carts-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "medusa-js-categories-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "medusa-js-collections-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "medusa-js-customers-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "medusa-js-orders-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "medusa-js-payments-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "medusa-js-products-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "medusa-js-regions-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "medusa-js-shipping-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }
